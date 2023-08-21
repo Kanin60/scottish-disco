@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import './App.css'
+import './app.scss'
 import DiceButton from './components/DiceButton/DiceButton'
-import { Bruger } from './components/Bruger/Bruger'
+import Modal from './components/modal/Modal'
 
 function App() {
   const [playerOne, setPlayerOne] = useState(0)
@@ -60,6 +60,19 @@ console.log(count);
             </div>
           </div>
         </DiceButton>
+        {winner && (
+          <Modal>
+            <h2>
+              {winner}
+            </h2>
+            <p>
+              Spil igen?
+            </p>
+            <button>
+              Nyt spil
+            </button>
+          </Modal>
+        )}
         
     </>
   )
