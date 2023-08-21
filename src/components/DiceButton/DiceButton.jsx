@@ -1,11 +1,11 @@
 import React from 'react'
 import Dice from './Dice'
 
-export default function DiceButton({score, eyes, KastTerning}) {
+export default function DiceButton({score, eyes, KastTerning, children}) {
 
   return (
     <div>
-        <p>Score: {score}</p>
+        {children}
         <button
         onClick={() => KastTerning()}
         >
