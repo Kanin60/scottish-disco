@@ -1,15 +1,66 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import DiceButton from './components/DiceButton/DiceButton'
+import { Bruger } from './components/Bruger/Bruger'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [playerOne, setPlayerOne] = useState(0)
+  const [playerTwo, setPlayerTwo] = useState(0)
+  const [lastPlayer, setLastPlayer] = useState(false)
+  const [winner, setWinner] = useState("")
+  const [count, setCount] = useState(1)
+
+  const randomNumber = (min, max) =>{
+    return Math.floor(Math.random()
+      * (max - min + 1)) + min
+  }
+
+  const kastTerning = () => {
+    if(playerOne >= 10 || playerTwo >= 10){
+      setPlayerOne(0)
+      setPlayerTwo(0)
+      
+      return
+    }
+    const number = randomNumber(1, 6)
+    setCount(number)
+    sammenlagtScore(number)
+  }
+console.log(count);
+
+  const sammenlagtScore = (number) => {
+    if(lastPlayer){
+      setLastPlayer(!lastPlayer)
+      setPlayerOne(playerOne + number)
+    } else {
+      
+      setPlayerTwo(playerTwo + number)
+      setLastPlayer(!lastPlayer)
+    }
+    if(playerOne + number >= 10 ){
+      setWinner("player 1 har vundet")
+    }
+    if(playerTwo + number >= 10){
+      setWinner("player 2 har vundet")
+    }
+  }
 
   return (
     <>
-      <DiceButton eyes={3} score={10} />
+        <DiceButton KastTerning={kastTerning} eyes={count} score={playerOne}>
+          <div className="card">
+            {winner && <p>{winner}</p>}
+            <div>
+                <p>Player One</p>
+                <p>SCORE: {playerOne}</p>
+            </div>
+            <div>
+                <p>Player Two</p>
+                <p>SCORE: {playerTwo}</p>
+            </div>
+          </div>
+        </DiceButton>
+        
     </>
   )
 }
