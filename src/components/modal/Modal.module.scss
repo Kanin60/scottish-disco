@@ -11,6 +11,9 @@
         background-color: white;
         border-radius: 10px;
         padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
         button{
             background-color: #121217;
             border-radius: 4px;

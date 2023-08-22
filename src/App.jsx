@@ -48,6 +48,15 @@ console.log(count);
     }
   }
 
+      const resetGame = () => {
+      console.log("ran");
+      setPlayerOne(0)
+      setPlayerTwo(0)
+      setLastPlayer(false)
+      setWinner("")
+      count(0)
+    }
+
   return (
     <div className={"mainContainer"}>
         <div className={"pink"}></div>
@@ -78,9 +87,15 @@ console.log(count);
         </div>
         
         {winner && <Modal>
-          <h1>fafs</h1>
-          <p>gdds</p>
-          <button>Reset</button>
+          <h2>
+            {winner}
+          </h2>
+          <p>Spil igen?</p>
+          <button
+          onClick={resetGame}
+          >
+            Nyt spil
+          </button>
         </Modal>}
     </div>
   )
