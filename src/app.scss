@@ -1,14 +1,112 @@
-body{
-    background-color: #fafafa;
+
+@font-face {
+  font-family:'ocr-a' ;
+  src: url(../src/assets/ocr-a/OCR-A\ Regular.ttf);
 }
-button{
-    background-color: transparent;
-    border: none;
-    font-size: 2rem;
-    svg{
-        border: #ccc 1.5px solid ;
-        color: white;
-        background-color: black;
-        border-radius: 8px;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  width: 1280px;
+  height: 880px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body{
+  background-image: url(./assets/download.jpg);
+  background-repeat: none;
+  background-position: center;
+  background-size: cover;
+  /* filter: blur(1px); */
+}
+
+.mainContainer{
+  position: relative;
+  background-color: #F0736A;
+  width: 100%;
+  height: 100%;
+  border: 15px solid #94E9F3;
+  .pink{
+    height: 5rem;
+    width: 100%;
+    background-color:#971F5D ;
+  }
+  .orange{
+    height: 5rem;
+    width: 100%;
+    background-color:#C44963 ;
+  }
+  h1{
+  
+    position: absolute;
+    top:0;
+    left: 4rem;
+    color: #B8E3E2;
+    font-size: 8rem;
+    font-family:'ocr-a';
+    font-weight:300;
+    text-transform: uppercase;
+
+  }
+  
+ 
+
+
+  .cardGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    padding: 2em;
+    .cardOne{
+      h3{
+        font-size: 4rem;
+        font-family:'ocr-a';
+        font-weight: 200;
+        letter-spacing: 7px;
+      }
+      p{
+        font-size: 3rem;
+        font-family:'ocr-a';
+        font-weight: 200;
+        letter-spacing: 7px;
+      }
+      .pige{
+        position:absolute;
+        bottom: -14rem;
+        left: -15rem;
+      }
     }
+
+
+    .cardTwo{
+      h3{
+        font-size: 4rem;
+        font-family: 'ocr-a';
+        font-weight:200;
+        letter-spacing: 7px;
+      }
+      p{
+        font-size: 3rem;
+        font-family:'ocr-a';
+        font-weight: 200;
+        letter-spacing: 7px;
+
+      }
+      .dreng{
+        position: absolute;
+        bottom: -14rem;
+    }
+  }
+}
+
+
+
+
+.read-the-docs {
+  color: #888;
+}
 }
