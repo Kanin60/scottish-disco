@@ -45,7 +45,10 @@ console.log(count);
   }
 
   return (
-    <>
+    <div className={"mainContainer"}>
+      <div className={"pink"}></div>
+      <div className={"orange"}></div>
+      <h1>Scottish Disco</h1>
         <DiceButton KastTerning={kastTerning} eyes={count} score={playerOne}>
           <div className="card">
             {winner && <p>{winner}</p>}
@@ -59,8 +62,7 @@ console.log(count);
             </div>
           </div>
         </DiceButton>
-        
-    </>
+    </div> 
   )
 }
 
