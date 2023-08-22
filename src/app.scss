@@ -1,0 +1,14 @@
+body{
+    background-color: #fafafa;
+}
+button{
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    svg{
+        border: #ccc 1.5px solid ;
+        color: white;
+        background-color: black;
+        border-radius: 8px;
+    }
+}
