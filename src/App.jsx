@@ -2,6 +2,9 @@ import { useState } from 'react'
 import './app.scss'
 import DiceButton from './components/DiceButton/DiceButton'
 import Modal from './components/modal/Modal'
+import mand from '../src/assets/superhero2dreng.png'
+import pige from '../src/assets/superhero1pige.png'
+
 
 function App() {
   const [playerOne, setPlayerOne] = useState(0)
@@ -47,24 +50,39 @@ console.log(count);
 
   return (
     <div className={"mainContainer"}>
-      <div className={"pink"}></div>
-      <div className={"orange"}></div>
-      <h1>Scottish Disco</h1>
-        <DiceButton KastTerning={kastTerning} eyes={count} score={playerOne}>
-          <div className="card">
-            {winner && <p>{winner}</p>}
-            <div>
-                <p>Player One</p>
-                <p>SCORE: {playerOne}</p>
+        <div className={"pink"}></div>
+        <div className={"orange"}></div>
+        <h1>Scottish Disco</h1>
+        <div className={"cardGrid"}>
+          <DiceButton KastTerning={kastTerning} eyes={count} score={playerOne} className={"cardOne"}>
+            <div className="card">
+              {winner && <p>{winner}</p>}
+              <div>
+                  <h3>Player 1</h3>
+                  <p>Score:<br/> {playerOne}</p>
+                  <img className={'pige'} src={pige} alt="" />
+              </div>
+
             </div>
-            <div>
-                <p>Player Two</p>
-                <p>SCORE: {playerTwo}</p>
+          </DiceButton>
+          <DiceButton KastTerning={kastTerning} eyes={count} score={playerTwo} className={"cardTwo"}>
+            <div className="card">
+              {winner && <p>{winner}</p>}
+              <div>
+                  <h3>Player 2</h3>
+                  <p>Score:<br/> {playerTwo}</p>
+                  <img className={'dreng'} src={mand} alt="" />
+              </div>
             </div>
-          </div>
-        </DiceButton>
+          </DiceButton>
+        </div>
         
-    </>
+        {winner && <Modal>
+          <h1>fafs</h1>
+          <p>gdds</p>
+          <button>Reset</button>
+        </Modal>}
+    </div>
   )
 }
 
