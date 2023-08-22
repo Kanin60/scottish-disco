@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 import DiceButton from './components/DiceButton/DiceButton'
-import { Bruger } from './components/Bruger/Bruger'
 
 function App() {
   const [playerOne, setPlayerOne] = useState(0)
