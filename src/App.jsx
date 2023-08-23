@@ -16,7 +16,7 @@ function App() {
   const [winner, setWinner] = useState("")
   const [count, setCount] = useState(1)
   const [count2, setCount2] = useState(1)
-  const [play] = useSound(winnerSfx, { volume: 0.2})
+  const [play] = useSound(winnerSfx, { volume: 0.15})
   const [openModal, setOpenModal] = useState(false)
 
   const randomNumber = (min, max) =>{
