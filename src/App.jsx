@@ -4,6 +4,9 @@ import DiceButton from './components/DiceButton/DiceButton'
 import Modal from './components/modal/Modal'
 import mand from '../src/assets/superhero2dreng.png'
 import pige from '../src/assets/superhero1pige.png'
+import useSound from 'use-sound'
+import winnerSfx from "./assets/sounds/winner.mp3"
+import {BiReset, BiQuestionMark} from "react-icons/bi"
 
 
 function App() {
@@ -12,6 +15,9 @@ function App() {
   const [lastPlayer, setLastPlayer] = useState(false)
   const [winner, setWinner] = useState("")
   const [count, setCount] = useState(1)
+  const [count2, setCount2] = useState(1)
+  const [play] = useSound(winnerSfx)
+  const [openModal, setOpenModal] = useState(false)
 
   const randomNumber = (min, max) =>{
     return Math.ceil(Math.random(min)*max)
