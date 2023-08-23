@@ -101,8 +101,8 @@ console.log(count);
         </button>
         
         {openModal && <Modal>
-          <button onClick={() => setOpenModal(false)}>x</button>
-          <h1>regler</h1>
+          <button onClick={() => setOpenModal(false)}>+</button>
+          <h5>regler</h5>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium labore voluptates doloribus culpa in, ullam deleniti sed alias praesentium, quis a voluptate dolores soluta? Numquam enim laborum deleniti sit quis?</p>
         </Modal>}
     </div>
