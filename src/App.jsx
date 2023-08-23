@@ -8,6 +8,7 @@ import useSound from 'use-sound'
 import winnerSfx from "./assets/sounds/winner.mp3"
 import diceRoll from "./assets/sounds/dice.mp3"
 import {BiReset, BiQuestionMark} from "react-icons/bi"
+import {GrPowerReset} from "react-icons/Gr"
 
 
 function App() {
@@ -96,11 +97,11 @@ console.log(count);
             </DiceButton>
           </div>
         </div>
-        <button onClick={() => setOpenModal(true)}>
-          <BiQuestionMark />
+        <button onClick={() => resetGame()} className={"resetBnt"}>
+          <GrPowerReset />
         </button>
-        <button onClick={() => resetGame()}>
-          <BiReset />
+        <button onClick={() => setOpenModal(true)} className={"questionBnt"}>
+          <BiQuestionMark />
         </button>
         
         {openModal && <Modal closeModal={() => setOpenModal(false)}>
