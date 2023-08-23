@@ -1,6 +1,7 @@
 .modalContainer{
-    height: 300px;
-    width: 300px;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
     left: 0;
     top: 0;
     position: absolute;
@@ -8,16 +9,36 @@
     display: grid;
     place-content: center;
     .modal{
+        position: relative;
         background-color: white;
         border-radius: 10px;
         padding: 2rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        h4{
+            font-size: 5rem;
+        }
+        h5{
+            font-size: 4rem;
+        }
+        p{
+            font-size: 1.6rem;
+        }
         button{
-            background-color: #121217;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
             border-radius: 4px;
-            color: white;
+            font-size: 4rem;
+            padding: 0;
+            transform: rotate(45deg);
+        }
+        ul{
+            list-style-position: inside;
+            font-size: 1.6rem;
         }
     }
 }

@@ -6,6 +6,7 @@ import mand from '../src/assets/superhero2dreng.png'
 import pige from '../src/assets/superhero1pige.png'
 import useSound from 'use-sound'
 import winnerSfx from "./assets/sounds/winner.mp3"
+import diceRoll from "./assets/sounds/dice.mp3"
 import {BiReset, BiQuestionMark} from "react-icons/bi"
 import {GrPowerReset} from "react-icons/Gr"
 
@@ -17,7 +18,8 @@ function App() {
   const [winner, setWinner] = useState("")
   const [count, setCount] = useState(1)
   const [count2, setCount2] = useState(1)
-  const [play] = useSound(winnerSfx, { volume: 0.2})
+  const [playWinner] = useSound(winnerSfx, { volume: 0.15})
+  const [playDice] = useSound(diceRoll, { volume: 0.15})
   const [openModal, setOpenModal] = useState(false)
 
   const randomNumber = (min, max) =>{
@@ -31,6 +33,7 @@ function App() {
       setWinner('')
       return
     }
+    playDice();
     const number = randomNumber(1, 6)
     !lastPlayer ? setCount(number) : setCount2(number)
     sammenlagtScore(number)
@@ -47,11 +50,11 @@ console.log(count);
       setLastPlayer(!lastPlayer)
     }
     if(playerOne + number >= 20 ){
-      play(winnerSfx)
+      playWinner()
       setWinner("player 1 har vundet")
     }
     if(playerTwo + number >= 20){
-      play(winnerSfx)
+      playWinner()
       setWinner("player 2 har vundet")
     }
   }
@@ -103,8 +106,33 @@ console.log(count);
         
         {openModal && <Modal>
           <button onClick={() => setOpenModal(false)}>+</button>
-          <h5>regler</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium labore voluptates doloribus culpa in, ullam deleniti sed alias praesentium, quis a voluptate dolores soluta? Numquam enim laborum deleniti sit quis?</p>
+          <h4>Scottish Disco - Spilleregler</h4>
+          <p>
+            "Scottish Disco" er et online terningespil designet til 2 spillere. Formålet med spillet er at være den første spiller til at opnå 20 point ved at kaste virtuelle terninger.
+          </p>
+          <h5>
+            Spilforløb:
+          </h5>
+          <ul>
+            <li>
+              To spillere deltager i det samme spil.
+            </li>
+            <li>
+              Spillerne skiftes til at kaste terninger ved at klikke på "Kast terning" knappen.
+            </li>
+            <li>
+              Hver terningkast simulerer kastet af to seks-sidet terninger med tilfældige værdier fra 1 til 6.
+            </li>
+            <li>
+              Resultatet af terningen summeres, og pointene beregnes
+            </li>
+          </ul>
+          <h5>
+            Vinder:
+          </h5>
+          <p>
+            Den første spiller, der når eller overstiger 20 point, vinder spillet. Hvis en spiller rammer nøjagtigt 20 point, er det stadig den første spiller til at gøre det, der vinder.
+          </p>
         </Modal>}
     </div>
   )
