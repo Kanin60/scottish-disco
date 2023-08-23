@@ -16,7 +16,7 @@ function App() {
   const [winner, setWinner] = useState("")
   const [count, setCount] = useState(1)
   const [count2, setCount2] = useState(1)
-  const [play] = useSound(winnerSfx)
+  const [play] = useSound(winnerSfx, { volume: 0.2})
   const [openModal, setOpenModal] = useState(false)
 
   const randomNumber = (min, max) =>{
@@ -27,6 +27,7 @@ function App() {
     if(playerOne >= 20 || playerTwo >= 20){
       setPlayerOne(0)
       setPlayerTwo(0)
+      setWinner('')
       return
     }
     const number = randomNumber(1, 6)
@@ -75,10 +76,10 @@ console.log(count);
             <DiceButton KastTerning={lastPlayer ? () => {} : kastTerning} eyes={count} score={playerOne} className={"cardOne"}>
               <div className="card">
                 {winner && <p>{winner}</p>}
-                <div>
+                {!winner && <div>
                     <h3>Player 1</h3>
                     <p>Score:<br/> {playerOne}</p>
-                </div>
+                </div>}
               </div>
             </DiceButton>
             <DiceButton KastTerning={lastPlayer ? kastTerning : () => {}} eyes={count2} score={playerTwo} className={"cardTwo"}>
