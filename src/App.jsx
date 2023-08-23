@@ -103,7 +103,7 @@ console.log(count);
           <BiReset />
         </button>
         
-        {openModal && <Modal>
+        {openModal && <Modal closeModal={() => setOpenModal(false)}>
           <button onClick={() => setOpenModal(false)}>+</button>
           <h4>Scottish Disco - Spilleregler</h4>
           <p>
