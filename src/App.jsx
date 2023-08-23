@@ -4,6 +4,7 @@ import DiceButton from './components/DiceButton/DiceButton'
 import Modal from './components/modal/Modal'
 import mand from '../src/assets/superhero2dreng.png'
 import pige from '../src/assets/superhero1pige.png'
+import {BiReset, BiQuestionMark} from "react-icons/bi"
 
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
   const [lastPlayer, setLastPlayer] = useState(false)
   const [winner, setWinner] = useState("")
   const [count, setCount] = useState(1)
+  const [count2, setCount2] = useState(1)
+  const [openModal, setOpenModal] = useState(false)
 
   const randomNumber = (min, max) =>{
     return Math.ceil(Math.random(min)*max)
@@ -24,13 +27,13 @@ function App() {
       return
     }
     const number = randomNumber(1, 6)
-    setCount(number)
+    !lastPlayer ? setCount(number) : setCount2(number)
     sammenlagtScore(number)
   }
 console.log(count);
 
   const sammenlagtScore = (number) => {
-    if(lastPlayer){
+    if(!lastPlayer){
       setLastPlayer(!lastPlayer)
       setPlayerOne(playerOne + number)
     } else {
@@ -46,14 +49,14 @@ console.log(count);
     }
   }
 
-      const resetGame = () => {
-      console.log("ran");
-      setPlayerOne(0)
-      setPlayerTwo(0)
-      setLastPlayer(false)
-      setWinner("")
-      count(0)
-    }
+  const resetGame = () => {
+    setPlayerOne(0)
+    setPlayerTwo(0)
+    setLastPlayer(false)
+    setWinner(false)
+    setCount(1)
+    setCount2(1)
+  };
 
   return (
     <div className={"mainContainer"}>
@@ -64,7 +67,7 @@ console.log(count);
           <img className={'pige'} src={pige} alt="" />
           <img className={'dreng'} src={mand} alt="" />
           <div className={'Cantainer'}>
-            <DiceButton KastTerning={kastTerning} eyes={count} score={playerOne} className={"cardOne"}>
+            <DiceButton KastTerning={lastPlayer ? () => {} : kastTerning} eyes={count} score={playerOne} className={"cardOne"}>
               <div className="card">
                 {winner && <p>{winner}</p>}
                 <div>
@@ -73,7 +76,7 @@ console.log(count);
                 </div>
               </div>
             </DiceButton>
-            <DiceButton KastTerning={kastTerning} eyes={count} score={playerTwo} className={"cardTwo"}>
+            <DiceButton KastTerning={lastPlayer ? kastTerning : () => {}} eyes={count2} score={playerTwo} className={"cardTwo"}>
               <div className="card">
                 {winner && <p>{winner}</p>}
                 <div>
@@ -84,17 +87,17 @@ console.log(count);
             </DiceButton>
           </div>
         </div>
+        <button onClick={() => setOpenModal(true)}>
+          <BiQuestionMark />
+        </button>
+        <button onClick={() => resetGame()}>
+          <BiReset />
+        </button>
         
-        {winner && <Modal>
-          <h2>
-            {winner}
-          </h2>
-          <p>Spil igen?</p>
-          <button
-          onClick={resetGame}
-          >
-            Nyt spil
-          </button>
+        {openModal && <Modal>
+          <button onClick={() => setOpenModal(false)}>x</button>
+          <h1>regler</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium labore voluptates doloribus culpa in, ullam deleniti sed alias praesentium, quis a voluptate dolores soluta? Numquam enim laborum deleniti sit quis?</p>
         </Modal>}
     </div>
   )
