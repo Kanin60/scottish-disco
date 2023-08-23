@@ -57,50 +57,38 @@ body{
 
 
   .cardGrid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
     gap: 5rem;
     padding: 2em;
-    .cardOne{
-      h3{
-        font-size: 4rem;
-        font-family:'ocr-a';
-        font-weight: 200;
-        letter-spacing: 7px;
-      }
-      p{
-        font-size: 3rem;
-        font-family:'ocr-a';
-        font-weight: 200;
-        letter-spacing: 7px;
-      }
-      .pige{
-        position:absolute;
-        bottom: -14rem;
-        left: -15rem;
-      }
+    .pige{
+      position:absolute;
+      bottom: -14rem;
+      left: -15rem;
     }
+    .dreng{
+      position: absolute;
+      bottom: -14rem;
+      right: -16rem;
 
-
-    .cardTwo{
-      h3{
-        font-size: 4rem;
-        font-family: 'ocr-a';
-        font-weight:200;
-        letter-spacing: 7px;
-      }
-      p{
-        font-size: 3rem;
-        font-family:'ocr-a';
-        font-weight: 200;
-        letter-spacing: 7px;
-
-      }
-      .dreng{
-        position: absolute;
-        bottom: -14rem;
-    }
   }
+  h3{
+    font-size: 4rem;
+    font-family:'ocr-a';
+    font-weight: 200;
+    letter-spacing: 7px;
+  }
+  p{
+    font-size: 3rem;
+    font-family:'ocr-a';
+    font-weight: 200;
+    letter-spacing: 7px;
+  }
+  .Cantainer{
+    display: grid;
+    justify-items:center;
+    justify-content:center ;
+    grid-template-columns: 1fr 1fr;}
 }
 
 

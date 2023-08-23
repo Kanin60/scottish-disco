@@ -14,15 +14,13 @@ function App() {
   const [count, setCount] = useState(1)
 
   const randomNumber = (min, max) =>{
-    return Math.floor(Math.random()
-      * (max - min + 1)) + min
+    return Math.ceil(Math.random(min)*max)
   }
 
   const kastTerning = () => {
-    if(playerOne >= 10 || playerTwo >= 10){
+    if(playerOne >= 20 || playerTwo >= 20){
       setPlayerOne(0)
       setPlayerTwo(0)
-      
       return
     }
     const number = randomNumber(1, 6)
@@ -40,10 +38,10 @@ console.log(count);
       setPlayerTwo(playerTwo + number)
       setLastPlayer(!lastPlayer)
     }
-    if(playerOne + number >= 10 ){
+    if(playerOne + number >= 20 ){
       setWinner("player 1 har vundet")
     }
-    if(playerTwo + number >= 10){
+    if(playerTwo + number >= 20){
       setWinner("player 2 har vundet")
     }
   }
@@ -63,27 +61,28 @@ console.log(count);
         <div className={"orange"}></div>
         <h1>Scottish Disco</h1>
         <div className={"cardGrid"}>
-          <DiceButton KastTerning={kastTerning} eyes={count} score={playerOne} className={"cardOne"}>
-            <div className="card">
-              {winner && <p>{winner}</p>}
-              <div>
-                  <h3>Player 1</h3>
-                  <p>Score:<br/> {playerOne}</p>
-                  <img className={'pige'} src={pige} alt="" />
+          <img className={'pige'} src={pige} alt="" />
+          <img className={'dreng'} src={mand} alt="" />
+          <div className={'Cantainer'}>
+            <DiceButton KastTerning={kastTerning} eyes={count} score={playerOne} className={"cardOne"}>
+              <div className="card">
+                {winner && <p>{winner}</p>}
+                <div>
+                    <h3>Player 1</h3>
+                    <p>Score:<br/> {playerOne}</p>
+                </div>
               </div>
-
-            </div>
-          </DiceButton>
-          <DiceButton KastTerning={kastTerning} eyes={count} score={playerTwo} className={"cardTwo"}>
-            <div className="card">
-              {winner && <p>{winner}</p>}
-              <div>
-                  <h3>Player 2</h3>
-                  <p>Score:<br/> {playerTwo}</p>
-                  <img className={'dreng'} src={mand} alt="" />
+            </DiceButton>
+            <DiceButton KastTerning={kastTerning} eyes={count} score={playerTwo} className={"cardTwo"}>
+              <div className="card">
+                {winner && <p>{winner}</p>}
+                <div>
+                    <h3>Player 2</h3>
+                    <p>Score:<br/> {playerTwo}</p>
+                </div>
               </div>
-            </div>
-          </DiceButton>
+            </DiceButton>
+          </div>
         </div>
         
         {winner && <Modal>
