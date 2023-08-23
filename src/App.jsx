@@ -6,6 +6,7 @@ import mand from '../src/assets/superhero2dreng.png'
 import pige from '../src/assets/superhero1pige.png'
 import useSound from 'use-sound'
 import winnerSfx from "./assets/sounds/winner.mp3"
+import diceRoll from "./assets/sounds/dice.mp3"
 import {BiReset, BiQuestionMark} from "react-icons/bi"
 
 
@@ -16,7 +17,8 @@ function App() {
   const [winner, setWinner] = useState("")
   const [count, setCount] = useState(1)
   const [count2, setCount2] = useState(1)
-  const [play] = useSound(winnerSfx, { volume: 0.15})
+  const [playWinner] = useSound(winnerSfx, { volume: 0.15})
+  const [playDice] = useSound(diceRoll, { volume: 0.15})
   const [openModal, setOpenModal] = useState(false)
 
   const randomNumber = (min, max) =>{
@@ -30,6 +32,7 @@ function App() {
       setWinner('')
       return
     }
+    playDice();
     const number = randomNumber(1, 6)
     !lastPlayer ? setCount(number) : setCount2(number)
     sammenlagtScore(number)
@@ -46,11 +49,11 @@ console.log(count);
       setLastPlayer(!lastPlayer)
     }
     if(playerOne + number >= 20 ){
-      play(winnerSfx)
+      playWinner()
       setWinner("player 1 har vundet")
     }
     if(playerTwo + number >= 20){
-      play(winnerSfx)
+      playWinner()
       setWinner("player 2 har vundet")
     }
   }
