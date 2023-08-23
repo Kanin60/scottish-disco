@@ -4,7 +4,8 @@ import DiceButton from './components/DiceButton/DiceButton'
 import Modal from './components/modal/Modal'
 import mand from '../src/assets/superhero2dreng.png'
 import pige from '../src/assets/superhero1pige.png'
-
+import winnerSfx from "./assets/sounds/winner.mp3"
+import useSound from 'use-sound'
 
 function App() {
   const [playerOne, setPlayerOne] = useState(0)
@@ -12,6 +13,7 @@ function App() {
   const [lastPlayer, setLastPlayer] = useState(false)
   const [winner, setWinner] = useState("")
   const [count, setCount] = useState(1)
+  const [play] = useSound(winnerSfx, { volume: 0.10 })
 
   const randomNumber = (min, max) =>{
     return Math.ceil(Math.random(min)*max)
@@ -39,9 +41,11 @@ console.log(count);
       setLastPlayer(!lastPlayer)
     }
     if(playerOne + number >= 20 ){
+      play(winnerSfx)
       setWinner("player 1 har vundet")
     }
     if(playerTwo + number >= 20){
+      play(winnerSfx)
       setWinner("player 2 har vundet")
     }
   }
