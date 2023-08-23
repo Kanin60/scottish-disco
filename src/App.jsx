@@ -85,10 +85,10 @@ console.log(count);
             <DiceButton KastTerning={lastPlayer ? kastTerning : () => {}} eyes={count2} score={playerTwo} className={"cardTwo"}>
               <div className="card">
                 {winner && <p>{winner}</p>}
-                <div>
+                {!winner && <div>
                     <h3>Player 2</h3>
                     <p>Score:<br/> {playerTwo}</p>
-                </div>
+                </div>}
               </div>
             </DiceButton>
           </div>
