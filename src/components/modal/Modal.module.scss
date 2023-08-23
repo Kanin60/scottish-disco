@@ -15,15 +15,21 @@
     place-content: center;
     .modal{
         position: relative;
-        background-color: white;
+        background-color: #F0736A;
         border-radius: 10px;
         padding: 2rem;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        h4{
-            font-size: 5rem;
+        border: 10px solid #971F5D;
+        outline: 10px solid #b0e1e1;
+        h4, h5, p, ul li{
             font-family: "orc-a";
+        }
+        h4, h5{
+            font-weight: 300;
+            color: #b0e1e1;
+            font-size: 5rem;
         }
         h5{
             font-size: 4rem;
@@ -33,7 +39,7 @@
         }
         button{
             position: absolute;
-            top: 20px;
+            top: 0px;
             right: 20px;
             background-color: transparent;
             border: none;
