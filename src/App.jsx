@@ -105,8 +105,33 @@ console.log(count);
         
         {openModal && <Modal>
           <button onClick={() => setOpenModal(false)}>+</button>
-          <h5>regler</h5>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium labore voluptates doloribus culpa in, ullam deleniti sed alias praesentium, quis a voluptate dolores soluta? Numquam enim laborum deleniti sit quis?</p>
+          <h4>Scottish Disco - Spilleregler</h4>
+          <p>
+            "Scottish Disco" er et online terningespil designet til 2 spillere. Formålet med spillet er at være den første spiller til at opnå 20 point ved at kaste virtuelle terninger.
+          </p>
+          <h5>
+            Spilforløb:
+          </h5>
+          <ul>
+            <li>
+              To spillere deltager i det samme spil.
+            </li>
+            <li>
+              Spillerne skiftes til at kaste terninger ved at klikke på "Kast terning" knappen.
+            </li>
+            <li>
+              Hver terningkast simulerer kastet af to seks-sidet terninger med tilfældige værdier fra 1 til 6.
+            </li>
+            <li>
+              Resultatet af terningen summeres, og pointene beregnes
+            </li>
+          </ul>
+          <h5>
+            Vinder:
+          </h5>
+          <p>
+            Den første spiller, der når eller overstiger 20 point, vinder spillet. Hvis en spiller rammer nøjagtigt 20 point, er det stadig den første spiller til at gøre det, der vinder.
+          </p>
         </Modal>}
     </div>
   )
